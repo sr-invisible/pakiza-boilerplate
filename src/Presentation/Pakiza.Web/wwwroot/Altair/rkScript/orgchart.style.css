@@ -1,0 +1,66 @@
+#chart-container {
+  font-family: Arial;
+  height: 87vh;
+  border: 2px dashed #aaa;
+  border-radius: 5px;
+  overflow: auto;
+  text-align: center;
+}
+.orgchart .node.matched {
+  background-color: rgba(238, 217, 54, 0.5);
+}
+#edit-panel {
+  text-align: center;
+  position: relative;
+  left: 10px;
+  width: calc(100% - 40px);
+  border-radius: 4px;
+  float: left;
+  margin-top: 10px;
+  padding: 10px;
+  color: #fff;
+  background-color: #dedbdb;
+    box-shadow: 3px 6px 13px #00000026;
+}
+#edit-panel * {
+  font-size: 20px;
+}
+.btn {
+    background: none;
+   
+    border-radius: 5px;
+    color: white;
+    margin: 0px 9px;
+    padding: 0px 14px;
+}
+.orgchart{
+    background-image: none !important;
+  }
+  .orgchart .node .title {
+    background-color: rgb(82 100 197) !important;
+  
+}
+.orgchart .node{
+  width: 200px !important;
+}
+.orgchart .node .title{
+  width: auto !important;
+}
+button#btn-filter-node {
+    background: #4daf51;
+    border: 1px solid #4daf51;
+    cursor: pointer;
+}
+button#btn-filter-node:hover {
+    background: #439446;
+    
+}
+
+button#btn-cancel {
+    background: #f37d75;
+    border: 1px solid #f37d75;
+    cursor: pointer;
+}
+button#btn-cancel:hover {
+    background: #ef5449cc;
+   

@@ -1,0 +1,6 @@
+@Pakiza.API_HostAddress = http://localhost:5213
+
+GET {{Pakiza.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,252 @@
+﻿
+<!DOCTYPE html>
+<html lang="en" class="app_theme_d">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- PWA -->
+    <meta name="theme-color" content="#2196f3" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/png" href="~/Altair/assets/img/favicon-16x16.png" sizes="16x16" />
+
+    <link href="~/Altair/bower_components/kendo-ui/styles/kendo.common-material.min.css" rel="stylesheet" />
+    <link href="~/Altair/bower_components/kendo-ui/styles/kendo.material.min.css" rel="stylesheet" />
+    <link href="~/Altair/bower_components/uikit/css/uikit.almost-flat.min.css" rel="stylesheet" />
+    <link href="~/Altair/assets/css/main.min.css" rel="stylesheet" />
+    <link href="~/Altair/assets/css/themes/themes_combined.min.css" rel="stylesheet" />
+    <link href="~/Altair/bower_components/chartist/dist/chartist.min.css" rel="stylesheet" />
+
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+    <link href="~/altair/assets/select2/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        .sidebar_main_header {
+            overflow: hidden !important;
+            position: fixed !important;
+            top: 0 !important;
+            z-index: 9999 !important;
+            height: 88px !important;
+        }
+
+        .menu_section {
+            margin-top: 90px !important;
+        }
+
+        .sidebar_logo_large {
+            margin: 0px !important;
+        }
+
+        .logo_regular {
+            height: 88px !important;
+            width: 280px !important;
+        }
+        /*SR*/
+
+        #sidebar_main .menu_section > ul > li > a > .menu_icon {
+            /*width: 48px;*/
+            width: 25px !important;
+            text-align: left;
+            display: inline-block;
+            color: #727272;
+        }
+
+        #sidebar_main .menu_section > ul > li ul a {
+            /*padding: 8px 10px 8px 72px;*/
+            padding: 8px 10px 8px 50px !important;
+            display: block;
+            font: 400 13px / 18px Roboto, sans-serif;
+            color: #212121;
+        }
+        /*SR*/
+        .select2-container--default {
+            /* width: 100% !important; */
+            margin-top: 15px;
+        }
+
+        .select2-container--open .select2-dropdown--above {
+            border-bottom: 1px solid rgb(211, 211, 211) !important;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            top: -25px;
+        }
+
+        .select2-dropdown--below {
+            width: 331px;
+            border-top: 1px solid rgb(211, 211, 211) !important;
+        }
+
+        .select2-results__options {
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+        .sr-pb {
+            padding-bottom: 15px !important;
+        }
+
+        .sr-mb {
+            margin-top: 13px !important;
+        }
+
+        .sr-notification-z-index {
+            z-index: 9999 !important;
+        }
+
+        .uk-notify-message {
+            z-index: 100000 !important;
+        }
+    </style>
+</head>
+<body class=" sidebar_main_open sidebar_main_swipe">
+    <!-- main header -->
+    <header id="header_main">
+        <div class="header_main_content">
+            <nav class="uk-navbar">
+
+                <!-- main sidebar switch -->
+                <a href="#" id="sidebar_main_toggle" class="sSwitch sSwitch_left">
+                    <span class="sSwitchIcon"></span>
+                </a>
+
+                <!-- user manue -->
+                <div class="uk-navbar-flip">
+                    @* <ul class="uk-navbar-nav user_actions">
+                    @await Component.InvokeAsync("Profile")
+                    </ul> *@
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- main sidebar -->
+    <aside id="sidebar_main">
+        <div class="sidebar_main_header">
+            <div class="sidebar_logo">
+                <a asp-controller="Home" asp-action="Index" class="sSidebar_hide sidebar_logo_large">
+                    <img class="logo_regular" src="~/altair/assets/img/criplogo.png" alt="Logo" />
+                </a>
+            </div>
+        </div>
+
+        <div class="menu_section">
+            <ul>
+                <li title="Dashboard">
+                    <a asp-controller="Home" asp-action="Index">
+                        <span class="menu_icon"><i class="material-icons"></i></span>
+                        <span class="menu_title">Dashboard</span>
+                    </a>
+                </li>@*
+                @await Component.InvokeAsync("Menu") *@
+            </ul>
+        </div>
+    </aside>
+
+    <!-- main page content -->
+    <div id="page_content">
+        <!-- page breadcrumbs -->
+        <div id="top_bar">
+            <ul id="breadcrumbs">
+                @*      @if (DisplayName != "")
+                {
+                <li><a id="BreadcrumbsHome" asp-area="@Area" asp-controller="Home" asp-action="Index">@DisplayName</a></li>
+                }
+                <li><a id="BreadcrumbsHome" asp-area="@Area" asp-controller="Home" asp-action="Index">@Controller</a></li> *@
+                <li><span id="BreadcrumbsAction">@TempData["PageHeader"]</span></li>
+            </ul>
+        </div>
+
+        <div id="page_content_inner">
+            <div class="md-card">
+                <div class="md-card-content sr-card-content">
+                    <div class="uk-grid" data-uk-grid-margin>
+                        <div class="uk-width-1-1" id="dvmns">
+                            <main role="main" id="main">
+                                @RenderBody()
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="border-top footer text-muted uk-margin-top">
+                <div class="container">
+                    &copy; 2025 - Pakiza.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    @*     <script src="~/js/site.js" asp-append-version="true"></script> *@
+    <script src="~/Altair/assets/js/common.min.js"></script>
+    <script src="~/Altair/assets/js/uikit_custom.min.js"></script>
+    <script src="~/Altair/assets/js/altair_admin_common.min.js"></script>
+    <script src="~/altair/assets/select2/select2.full.min.js"></script>
+    <script src="~/altair/srScript/sr-menu.js"></script>
+    <script src="~/altair/srScript/sr-select2.js"></script>
+    @* <audio id="myAudio"> <source src="~/Altair/assets/notification.mp3" type="audio/mpeg"> </audio>*@
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            // alert("");
+            function setHeight() {
+                windowHeight = $(window).innerHeight() - 150;
+                $('#dvmns').css('min-height', windowHeight);
+            };
+            setHeight();
+
+            $(window).resize(function () {
+                setHeight();
+            });
+        });
+
+
+
+        // if ('serviceWorker' in navigator) {
+        //     navigator.serviceWorker
+        //         .register('/serviceworker.js')
+        //         .then(function () { console.log('Service Worker Registered'); });
+        // }
+
+        function UIkit_notify(_message, _status, _time) {
+            _status = _status ? _status.substring(0, 1).toLowerCase() : '';
+            var bgcol = _status ? _status == 's' ? 'success' : _status == 'd' ? 'danger' : _status == 'w' ? 'warning' : '' : '',
+                modal = UIkit.modal.blockUI("<div class='uk-text-center uk-text-italic'>" + (_message ? _message : 'Opps!!')
+                    + "<br/><img class='uk-margin-top' src='/Altair/assets/img/spinners/spinner" + (bgcol ? '_' + bgcol : '') + ".gif' alt=''></div>");
+            setTimeout(function () { modal.hide() }, parseFloat(_time || '1') * 1000);
+        }
+        var interval = setInterval(function () {
+            if ($('.uk-notify.uk-notify-top-right').length) {
+                $('<style>.uk-notify.uk-notify-top-right { z-index: 999999 !important; }</style>').appendTo('head');
+                clearInterval(interval);
+            }
+        }, 10);
+
+
+        function chkInputFormValidation(_rClass) {
+            var _this = null;
+            if (!_rClass) _rClass = 'required';
+            $("." + _rClass).removeClass("md-input-danger");
+            $("input").each(function () {
+                if ($(this).hasClass(_rClass)) {
+                    var _val = $(this).val(), _type = $(this).attr('type').toLowerCase();
+                    if (_val && _type == "number" && parseFloat(_val) <= 0) _val = '';
+                    if (!_val) {
+                        if (!_this) _this = $(this);
+                        $(this).addClass("md-input-danger");
+                    }
+                }
+            });
+            $("select").each(function () {
+                if ($(this).hasClass(_rClass) && !$(this).val()) {
+                    if (!_this) _this = $(this);
+                    $(this).addClass("md-input-danger");
+                }
+            });
+            return _this;
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

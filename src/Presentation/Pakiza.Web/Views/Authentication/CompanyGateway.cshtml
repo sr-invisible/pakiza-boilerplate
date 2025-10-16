@@ -1,0 +1,110 @@
+﻿@using Pakiza.Application.DTOs.User
+@model LoginDTO
+@{
+    Layout = null;
+    ViewData["Title"] = "Company Gateway";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRIPTON | PAKIZA - @ViewData["Title"]</title>
+    <!-- PWA -->
+    <meta name="theme-color" content="#2196f3" />
+    <!-- Bootstrap core CSS -->
+    <link href="~/Altair/LoginStyle/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Altair/LoginStyle/fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Altair/LoginStyle/css/animate.min.css" rel="stylesheet">
+    <!-- Custom styling plus plugins -->
+    <link href="~/Altair/LoginStyle/css/custom.css" rel="stylesheet">
+    <link href="~/Altair/LoginStyle/css/icheck/flat/green.css" rel="stylesheet">
+    <script src="~/Altair/LoginStyle/js/jquery.min.js"></script>
+    <style type="text/css">
+        #loginBgForm {
+            margin-top: 40%;
+        }
+
+        .logForm, .logFormD {
+            display: none;
+        }
+    </style>
+</head>
+<body class="login_page" style="background: #F7F7F7;">
+    <div class="">
+        @* <a class="hiddenanchor" id="toregister"></a><a class="hiddenanchor" id="tologin"> *@
+        </a>
+        <div id="wrapper">
+            <div id="login" class="animate form col-md-12 col-sm-12 col-xs-12" style="padding: 0px;">
+                <section class="col-md-9 col-sm-9 col-xs-12" style="padding: 0px;" id="loginBgImg">
+                    <img src="~/Altair/Images/login-bg.jpg" width="100%" height="auto" />
+                </section>
+                <section class="col-md-3 col-sm-3 col-xs-12" style="padding: 0px;">
+                    <div class="col-md-12 col-sm-12 col-xs-12" id="loginBgForm">
+                        <h1 style="text-align:center;"><img src="~/Altair/Images/Pakiza-Group.png" width="60%" height="auto" /></h1>
+                        <h3 style=" margin-bottom:10%; text-align:center;">User Login</h3>
+                        @*                         <% if (Model.ChkInfo != null) Response.Write("<h4 style='color:coral;margin-left:30px;margin-top:-5%;'>" + Model.ChkInfo + "</h4>"); %> *@
+
+                        <div class="form-group logForm">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <input class="form-control has-feedback-left" />
+                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group logForm">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <input class="form-control has-feedback-left" />
+                                <span class="fa fa-unlock-alt form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group logFormD">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <span id="otpTime" style="font-size: 16px; color: green; font-weight: bold;margin-left:20px;">OTP Expire In 5:00</span>
+                            </div>
+                        </div>
+                        <div class="form-group logFormD">
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <input class="form-control has-feedback-left" />
+                                <span class="fa fa-unlock-alt form-control-feedback left" aria-hidden="true"></span>
+                            </div>
+                        </div>
+
+                        @* <div class="form-group logFormD">
+                        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                        <label class="checkbox-inline"> <input id="saveThisDevice" type="checkbox" style="margin-top:0px;">Save This Device</label>
+                        </div>
+                        </div> *@
+                        <div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                <button type="button" class="btn btn-default btn-no-border logFormD" id="ReOtp" onclick="fnSubmit(this.id)" style="float:right">
+                                    <i class="fa fa-refresh" aria-hidden="true"></i> OTP Resend
+                                </button>
+                                <button type="button" class="btn btn-default btn-no-border" id="Submit" onclick="fnSubmit(this.id)">
+                                    <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Sign in
+                                </button>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="separator" style="position: fixed; bottom:0;width: 100%;">
+                            <div class="clearfix"></div>
+                            <div>
+                                <p style="padding-left:10px;">© <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Pakiza Knit Composite Ltd.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- content -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

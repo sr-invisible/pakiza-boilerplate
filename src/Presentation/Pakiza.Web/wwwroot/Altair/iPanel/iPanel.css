@@ -1,0 +1,68 @@
+
+		.selectize-input
+		{
+			min-height:15px !important;
+			padding: 0px 3px !important;
+			margin-top:-3px !important;
+		}
+		
+		
+    .IpbBlinkMe {
+      animation: ipbblinker 1s linear infinite;
+    }
+    @keyframes ipbblinker {
+      50% {
+        opacity: 0;
+      }
+    }
+    .IpbModuleArea {
+        /*width:100%;*/
+        margin-bottom:10px;
+    }
+    .IpbModuleHead {
+        display:block;
+        width:100%;
+        border-bottom: 2px solid #935757;
+        font-family: cursive;
+        font-weight: bold;
+        margin-bottom:8px;
+        font-size:12px;
+    }
+    .IpbModuleSubDetl {
+        /*font-size:12px;
+        line-height: 1 !important;*/
+        display:block;
+    }
+    .IpbTagSmall {
+        background-color:#6799bd;
+        cursor:pointer;
+    }
+    .IpbTagFull {
+        background-color:#0c73d9;
+        cursor:pointer;
+    }
+    .IpbTagSel {
+        background-color:Gray;
+    }
+    .IpbCloseBtn {
+        position: absolute;
+        top: 0px !important;
+        right: 0px !important;
+        color: #fbf2f2;
+        cursor:pointer !important;
+    }
+    .IpbCloseBtn:hover {
+      color: Black;
+    }
+    #IpbSaveBtn {
+      background-color: #137672;
+      color:White;
+      border-radius: 20px;
+      margin-bottom:10px;
+    }
+    #IpbSaveBtn:hover {
+      background-color: #7cb342;
+    }
+    .IpbHideThis {
+        display:none;
+    }

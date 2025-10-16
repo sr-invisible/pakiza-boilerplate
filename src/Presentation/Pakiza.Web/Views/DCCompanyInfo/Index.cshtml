@@ -1,0 +1,114 @@
+﻿@{
+	ViewData["Title"] = "Company Info";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* List Container Begin *@
+<div class="md-card md-card-content md-card-warning">
+	<div class="uk-grid" data-uk-grid-margin>
+		<div class="uk-width-medium-1-1 uk-container-center" id="tbl_Container"></div>
+	</div>
+</div>
+@* List Container End *@
+
+
+
+@* Add Button Section Begin *@
+<div class="md-fab-wrapper">
+	<span class="md-fab md-fab-accent" id="note_add" onclick="OpenPopupModel('00000000-0000-0000-0000-000000000000');"><i class="material-icons">add</i> </span>
+</div>
+@* Add Button Section End *@
+
+
+
+@* Upsert Modal Begin *@
+<div class="uk-modal" id="divModalUpsert">
+	<div class="uk-modal-dialog uk-modal-dialog-scrollable">
+
+		<div class='uk-modal-header'>
+			<h3 class='uk-modal-title' id="modalTitle"> Company Info</h3>
+			<button id="closeBtn" onclick="ClearFormData('divModalUpsertForm'); window.location.reload();" type='button' title='Close' class='uk-modal-close uk-close uk-float-right' style="margin-top: -25px;"></button>
+			<hr class="m-5" />
+		</div>
+		<div class="modal-body">
+			<form class="form" action="#" id="divModalUpsertForm">
+				<div class="uk-grid" data-uk-grid-margin>
+					<input type="text" id="id" name="Id" class="form-control" hidden />
+
+					<div class="uk-width-medium-2-2 sr-pb">
+						<label>Company Name <span class="uk-text-danger"> *</span></label>
+						<input id="companyName" name="CompanyName" type="text" class="form-control md-input label-fixed formInputs" />
+					</div>
+
+					<div class="uk-width-medium-2-2 sr-pb">
+						<label>Address</label>
+						<input id="address" name="Address" type="text" class="form-control md-input label-fixed formInputs" />
+					</div>
+
+					<div class="uk-width-medium-1-2 sr-pb">
+						<label>Contact Person</label>
+						<input id="contactPerson" name="ContactPerson" type="text" class="form-control md-input label-fixed formInputs" />
+					</div>
+
+					<div class="uk-width-medium-1-2 sr-pb">
+						<label>Phone <span class="uk-text-danger"> *</span></label>
+						<input id="phone" name="Phone" type="text" class="form-control md-input label-fixed formInputs" />
+					</div>
+
+					<div class="uk-width-medium-1-2 sr-pb">
+						<label>Email </label>
+						<input id="email" name="Email" type="text" class="form-control md-input label-fixed formInputs" />
+					</div>
+
+					<div class="uk-width-medium-1-2 sr-pb">
+						<label>Web URL </label>
+						<input id="webUrl" name="WebUrl" type="text" class="form-control md-input label-fixed formInputs" />
+						<span id="Key-error" class="uk-text-danger error-message"></span>
+					</div>
+					<div class="uk-width-medium-2-2 sr-pb">
+						<label>Web URL </label>
+						<input id="webUrl" name="WebUrl" type="text" class="form-control md-input label-fixed formInputs" />
+					</div>
+
+					<div class="uk-width-medium-2-2 sr-pb">
+						<label>Staus</label>
+						@Html.DropDownList("Status", (List<SelectListItem>)ViewBag.StatusSelectList, new
+							{
+								@class = "md-input label-fixed advSelects"
+							})
+					</div>
+
+				</div>
+
+				<div class="uk-modal-footer d-flex justify-content-center">
+					<button type="button" class="md-btn md-btn-primary md-btn-sm" style="margin-top: 20px" onclick="ClearFormData('divModalUpsertForm')">Reset</button>
+					<button id="addOrUpdateBtn" type="button" class="md-btn md-btn-success md-btn-sm" style="margin-top: 20px; float: right;" onclick="SubmitData()"></button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
+@* Upsert Modal End *@
+
+
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+	<script type="text/javascript" src="/Altair/assets/js/pages/forms_advanced.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/datatables-buttons/js/dataTables.buttons.js"></script>
+	<script type="text/javascript" src="/Altair/assets/js/custom/datatables/buttons.uikit.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/jszip/dist/jszip.min.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/pdfmake/build/pdfmake.min.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/pdfmake/build/vfs_fonts.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/datatables-buttons/js/buttons.colVis.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/datatables-buttons/js/buttons.html5.js"></script>
+	<script type="text/javascript" src="/Altair/bower_components/datatables-buttons/js/buttons.print.js"></script>
+	<script type="text/javascript" src="/Altair/assets/js/custom/datatables/datatables.uikit.js"></script>
+	<script type="text/javascript" src="/Altair/assets/js/pages/plugins_datatables.js"></script>
+	<script src="~/altair/custom/js/dc/CompanyInfo.js"></script>
+	<script type="text/javascript">
+		altair_form_adv.rkAdvSelects('.advSelects1', 1);
+	</script>
+}
